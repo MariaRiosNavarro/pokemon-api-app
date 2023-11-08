@@ -1,22 +1,28 @@
-const PokeDetail = (props) => {
+const PokeDetail = ({ pokemonItem }) => {
   return (
     <div>
       <div className="image-wrapper">
-        <img src={props.sprites.front_default} alt={`${props.name} front`} />
-        <img src={props.sprites.back_default} alt={`${props.name} back`} />
+        <img
+          src={pokemonItem.sprites.front_default}
+          alt={`${pokemonItem.name} front`}
+        />
+        <img
+          src={pokemonItem.sprites.back_default}
+          alt={`${pokemonItem.name} back`}
+        />
       </div>
       <div className="description">
         <div className="description-header">
-          <span>{props.id}</span>
-          <span>{props.name}</span>
+          <span>{pokemonItem.id}</span>
+          <span>{pokemonItem.name}</span>
         </div>
         <div className="description-types">
-          {props.types.map((item) => (
+          {pokemonItem.types.map((item) => (
             <span key={item.slot + item.type.name}>{item.type.name}</span>
           ))}
         </div>
         <div className="description-abilities">
-          {props.abilities.map((item) => (
+          {pokemonItem.abilities.map((item) => (
             <span key={item.slot + item.ability.name}>{item.ability.name}</span>
           ))}
         </div>
@@ -24,25 +30,25 @@ const PokeDetail = (props) => {
           <div>
             <p>
               <span>Weight:</span>
-              {props.weight}
+              {pokemonItem.weight}
             </p>
           </div>
           <div>
             <p>
               <span>Height:</span>
-              {props.height}
+              {pokemonItem.height}
             </p>
           </div>
           <div>
             <p>
               <span>Order:</span>
-              {props.order}
+              {pokemonItem.order}
             </p>
           </div>
           <div>
             <p>
               <span>Experience:</span>
-              {props.base_experience}
+              {pokemonItem.base_experience}
             </p>
           </div>
         </div>
