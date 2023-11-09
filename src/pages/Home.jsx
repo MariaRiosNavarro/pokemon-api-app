@@ -5,12 +5,10 @@ import { AppPokemonFetchProvider } from "../Context/AppPokemonFetchProvider";
 
 const Home = () => {
   return (
-    <AppPokemonFetchProvider>
-      <div>
-        <Header svgIcon={MenuIcon} href="/menu" />
-        <Gallery />
-      </div>
-    </AppPokemonFetchProvider>
+    <div>
+      <Header svgIcon={MenuIcon} href="/menu" />
+      <Gallery />
+    </div>
   );
 };
 

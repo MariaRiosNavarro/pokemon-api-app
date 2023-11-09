@@ -1,9 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {
-  AppPokemonFetchProvider,
-  useMyContext,
-} from "../Context/AppPokemonFetchProvider";
+import { useMyContext } from "../Context/AppPokemonFetchProvider";
+import Gallery from "../components/Gallery";
 
 const Menu = () => {
   const [pokemonData, setPokemonData] = useState();
@@ -108,6 +106,7 @@ const Menu = () => {
       <div>
         <button onClick={handleSearch}>Search</button>
       </div>
+      <Gallery />
     </main>
   );
 };
