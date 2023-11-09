@@ -1,10 +1,10 @@
-import MenuIcon from "../assets/img/menu.svg";
 import DarkmodeIcon from "../assets/img/darkmode.svg";
 import "./NavBar.css";
 import { useEffect, useState } from "react";
 import { useMyContext } from "../Context/AppPokemonFetchProvider";
+import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ svgIcon, href }) => {
   const { setPokemonArray } = useMyContext();
   const [userInput, setUserInput] = useState();
 
@@ -27,8 +27,9 @@ const NavBar = () => {
 
   return (
     <nav>
-      <img src={MenuIcon} alt="" className="HeaderIcon" />
-
+      <Link to={href}>
+        <img src={svgIcon} alt="" className="HeaderIcon" />
+      </Link>
       <form action="#">
         <input
           onChange={(e) => setUserInput(e.target.value)}
