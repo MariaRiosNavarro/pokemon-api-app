@@ -1,7 +1,9 @@
+import Gallery from "../components/Gallery";
+
 const Home = () => {
   return (
     <div>
-      <h2>Home</h2>
+      <Gallery />
     </div>
   );
 };
