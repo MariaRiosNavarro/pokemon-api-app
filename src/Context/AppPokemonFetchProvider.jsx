@@ -8,6 +8,7 @@ export const AppPokemonFetchProvider = ({ children }) => {
   const url = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 
   const [pokemonArray, setPokemonArray] = useState([]);
+  const [typesPokemons, setTypesPokemons] = useState([]);
 
   useEffect(() => {
     fetch(url)
@@ -19,7 +20,9 @@ export const AppPokemonFetchProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ pokemonArray, setPokemonArray }}>
+    <AppContext.Provider
+      value={{ pokemonArray, setPokemonArray, typesPokemons, setTypesPokemons }}
+    >
       {children}
     </AppContext.Provider>
   );

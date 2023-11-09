@@ -1,12 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useMyContext } from "../Context/AppPokemonFetchProvider";
+import {
+  AppPokemonFetchProvider,
+  useMyContext,
+} from "../Context/AppPokemonFetchProvider";
 
 const Menu = () => {
   const [pokemonData, setPokemonData] = useState();
   const [selectedTypes, setSelectedTypes] = useState([]);
-  // const [searchResults, setSearchResults] = useState([]);
-  const { pokemonArray, setPokemonArray } = useMyContext();
+  const { typesPokemons, setTypesPokemons } = useMyContext();
 
   const navigate = useNavigate();
 
@@ -47,37 +49,28 @@ const Menu = () => {
     }
   };
 
-  const handleSearch = () => {
-    // Für jeden ausgewählten Typ werden Promise-Objekte erstellt.
-    const promises = selectedTypes.map((type) =>
-      // Jedes Promise-Objekt ist eine Anfrage an die Pokemon API für einen bestimmten Type.
-      fetch(`https://pokeapi.co/api/v2/type/${type}`)
-        .then((res) => res.json())
-        .then((data) => data.pokemon)
-    );
-
-    // Promise.all nimmt ein Array von Promise-Objekten entgegen und gibt ein neues Promise zurück.
-    Promise.all(promises)
-      .then((results) => {
-        // Der Code wird ausgeführt, wenn alle Promises erfolgreich wurden.
-        // 'results' enthält die Daten der Promises.
-        const flattenedResults = results.flatMap((result) => result);
-        // Das flache Array wird im State (searchResults) gesetzt, um die gefundenen Pokemon zu speichern.
-        //! Callback, um die daten in den logs zu aktualisieren (async)
-        setPokemonArray(flattenedResults);
-        navigate("/");
-      })
-      .catch((error) => {
-        console.error(
-          "Error fetching Pokemon data, psst they hiding in the deep grass",
-          error
-        );
+  const handleSearch = async () => {
+    try {
+      const promises = selectedTypes.map(async (type) => {
+        const response = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+        const data = await response.json();
+        return data.pokemon;
       });
+
+      const results = await Promise.all(promises);
+      const combinedResults = results.flat(); //
+
+      setTypesPokemons(combinedResults);
+      console.log("1", combinedResults);
+      // navigate("/");
+    } catch (error) {
+      console.error("Error during type fetch", error);
+    }
   };
 
-  // useEffect(() => {
-  //   console.log("Search Results: flaches Array", searchResults);
-  // }, [searchResults]);
+  useEffect(() => {
+    console.log("2", typesPokemons);
+  }, [typesPokemons]);
 
   return (
     <main>
