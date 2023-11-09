@@ -15,7 +15,7 @@ export const AppPokemonFetchProvider = ({ children }) => {
       .then((data) => {
         setPokemonArray(data.results);
       })
-      .catch((err) => console.error("OH NO, was hast du nur getan....", err));
+      .catch((err) => console.error("OH NO,💣 was hast du nur getan❌", err));
   }, []);
 
   return (
