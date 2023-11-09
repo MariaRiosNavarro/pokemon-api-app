@@ -1,8 +1,14 @@
+import PokeLogo from "../assets/img/PokeLogo.svg";
+import NavBar from "./NavBar";
+
+import "./Header.css";
+
 const Header = () => {
   return (
-    <div>
-      <h1>Ich bin ein header</h1>
-    </div>
+    <header>
+      <img src={PokeLogo} alt="Pokemon-Logo" className="PokeLogo" />
+      <NavBar />
+    </header>
   );
 };
 
