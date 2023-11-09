@@ -15,14 +15,23 @@ const PokeDetail = ({ pokemonItem }) => {
           className="pokeImageBack"
         /> */}
       </div>
-      <div className="description">
+      <div>
         <div className="description-header">
-          <span>#{pokemonItem.id}</span>
-          <span>{pokemonItem.name}</span>
+          <div className="textBG">
+            <span>#{pokemonItem.id}</span>
+            <span>{pokemonItem.name}</span>
+          </div>
+
+          <div className="orangeText">
+            <span>#{pokemonItem.id}</span>
+            <span>{pokemonItem.name}</span>
+          </div>
         </div>
         <div className="description-types">
           {pokemonItem.types.map((item) => (
-            <span key={item.slot + item.type.name}>{item.type.name}</span>
+            <span className="pokeType" key={item.slot + item.type.name}>
+              {item.type.name}
+            </span>
           ))}
         </div>
         <div className="description-abilities">
