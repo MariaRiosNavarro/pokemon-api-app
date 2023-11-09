@@ -1,10 +1,11 @@
 import MenuIcon from "../assets/img/menu.svg";
 import DarkmodeIcon from "../assets/img/darkmode.svg";
-
 import "./NavBar.css";
 import { useEffect, useState } from "react";
+import { useMyContext } from "../Context/AppPokemonFetchProvider";
 
 const NavBar = () => {
+  const { setPokemonArray } = useMyContext();
   const [userInput, setUserInput] = useState();
 
   const url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
@@ -18,6 +19,7 @@ const NavBar = () => {
         pokemons = data.results.filter((pokemon) => {
           return pokemon.name.includes(userInput) ? pokemon : null;
         });
+        setPokemonArray(pokemons);
         console.log(pokemons);
       })
       .catch((err) => console.error("Yan junge....", err));
