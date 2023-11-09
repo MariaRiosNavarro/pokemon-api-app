@@ -7,8 +7,13 @@ import BackIcon from "../assets/img/back.svg";
 
 const Detail = () => {
   const [onePokemon, setOnePokemon] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const { name } = useParams();
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 2000);
 
   let url = `https://pokeapi.co/api/v2/pokemon/${name}`;
 
@@ -23,11 +28,12 @@ const Detail = () => {
       });
   }, []);
 
-  if (!onePokemon) {
-    return <Loading />;
-  }
-
-  return (
+  return loading ? (
+    <div>
+      <Header />
+      <Loading />
+    </div>
+  ) : (
     <div>
       <Header svgIcon={BackIcon} href="/" />
       <PokeDetail pokemonItem={onePokemon} />
