@@ -5,7 +5,7 @@ const AppContext = createContext();
 export const useMyContext = () => useContext(AppContext);
 
 export const AppPokemonFetchProvider = ({ children }) => {
-  const url = "https://pokeapi.co/api/v2/pokemon/";
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 
   const [pokemonArray, setPokemonArray] = useState([]);
 

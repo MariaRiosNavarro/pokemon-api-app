@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
-import {
-  useMyContext,
-  AppPokemonFetchProvider,
-} from "../Context/AppPokemonFetchProvider";
+import { useMyContext } from "../Context/AppPokemonFetchProvider";
 
 const Gallery = () => {
   const { pokemonArray } = useMyContext();
