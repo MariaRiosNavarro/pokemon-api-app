@@ -39,5 +39,8 @@
 }
 
 .description-types {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
   color: white;
 }
