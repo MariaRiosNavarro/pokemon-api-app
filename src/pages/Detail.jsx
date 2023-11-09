@@ -27,7 +27,7 @@ const Detail = () => {
   }
 
   return (
-    <div>
+    <div className="blueBG">
       <Header />
       <PokeDetail pokemonItem={onePokemon} />
     </div>
