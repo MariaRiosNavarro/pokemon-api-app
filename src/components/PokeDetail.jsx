@@ -37,37 +37,39 @@ const PokeDetail = ({ pokemonItem }) => {
         <details>
           <summary>ATTACKS AND MOVEMENTS</summary>
 
-          <div className="description-abilities">
-            {pokemonItem.abilities.map((item) => (
-              <span key={item.slot + item.ability.name}>
-                {item.ability.name}
-              </span>
-            ))}
-          </div>
-          <div className="description-numbers">
-            <div>
-              <p>
-                <span>Weight:</span>
-                {pokemonItem.weight}
-              </p>
+          <div className="pokeSummery">
+            <div className="description-abilities">
+              {pokemonItem.abilities.map((item) => (
+                <span key={item.slot + item.ability.name}>
+                  {item.ability.name}
+                </span>
+              ))}
             </div>
-            <div>
-              <p>
-                <span>Height:</span>
-                {pokemonItem.height}
-              </p>
-            </div>
-            <div>
-              <p>
-                <span>Order:</span>
-                {pokemonItem.order}
-              </p>
-            </div>
-            <div>
-              <p>
-                <span>Experience:</span>
-                {pokemonItem.base_experience}
-              </p>
+            <div className="description-numbers">
+              <div>
+                <p>
+                  <span>Weight:</span>
+                  {pokemonItem.weight}
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span>Height:</span>
+                  {pokemonItem.height}
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span>Order:</span>
+                  {pokemonItem.order}
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span>Experience:</span>
+                  {pokemonItem.base_experience}
+                </p>
+              </div>
             </div>
           </div>
         </details>

@@ -1,5 +1,6 @@
 .pokeDetail {
   background-color: #ccdadd;
+  height: 100vh;
 }
 
 .image-wrapper {
@@ -43,4 +44,21 @@
   display: flex;
   justify-content: center;
   color: white;
+}
+
+details {
+  margin: 3vh 25vw;
+}
+summary {
+  color: #ffcb05;
+  font-family: roboBold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.pokeSummery {
+  margin-top: 2vh;
+  text-align: center;
+  line-height: 3vh;
+  color: #2c72b8;
 }
