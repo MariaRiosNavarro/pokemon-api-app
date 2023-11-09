@@ -6,17 +6,18 @@ const PokeDetail = ({ pokemonItem }) => {
       <div className="image-wrapper">
         <img
           className="pokeImage"
-          src={pokemonItem.sprites.front_default}
+          src={pokemonItem.sprites.other.dream_world.front_default}
           alt={`${pokemonItem.name} front`}
         />
-        <img
+        {/* <img
           src={pokemonItem.sprites.back_default}
           alt={`${pokemonItem.name} back`}
-        />
+          className="pokeImageBack"
+        /> */}
       </div>
       <div className="description">
         <div className="description-header">
-          <span>{pokemonItem.id}</span>
+          <span>#{pokemonItem.id}</span>
           <span>{pokemonItem.name}</span>
         </div>
         <div className="description-types">

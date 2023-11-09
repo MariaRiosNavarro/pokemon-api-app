@@ -1,7 +1,23 @@
+@font-face {
+  font-family: roboto;
+  src: url("./assets/font/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: roboBold;
+  src: url("./assets/font/Roboto-Bold.ttf");
+}
+
+@font-face {
+  font-family: roboMedi;
+  src: url("./assets/font/Roboto-Medium.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: roboto;
 }
 
 .blueBG {
