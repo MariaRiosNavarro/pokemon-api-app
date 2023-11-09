@@ -8,7 +8,7 @@ const Menu = () => {
   const [selectedTypes, setSelectedTypes] = useState([]);
   const { typesPokemons, setTypesPokemons } = useMyContext();
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/type/")
@@ -47,6 +47,8 @@ const Menu = () => {
     }
   };
 
+  // !Ich musste die funktion ändern weil ich nicht ganz verfolgt habe was passiert
+
   const handleSearch = async () => {
     try {
       const promises = selectedTypes.map(async (type) => {
@@ -57,18 +59,18 @@ const Menu = () => {
 
       const results = await Promise.all(promises);
       const combinedResults = results.flat(); //
-
+      //!hier geben die daten weiter an der typesPokemons
       setTypesPokemons(combinedResults);
-      console.log("1", combinedResults);
-      // navigate("/");
+      // console.log("1", combinedResults);
+      navigate("/");
     } catch (error) {
       console.error("Error during type fetch", error);
     }
   };
 
-  useEffect(() => {
-    console.log("2", typesPokemons);
-  }, [typesPokemons]);
+  // useEffect(() => {
+  //   console.log("2", typesPokemons);
+  // }, [typesPokemons]);
 
   return (
     <main>

@@ -8,6 +8,8 @@ export const AppPokemonFetchProvider = ({ children }) => {
   const url = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 
   const [pokemonArray, setPokemonArray] = useState([]);
+
+  // !neues kontext für die Types damit wir die weiter an den Home geben können
   const [typesPokemons, setTypesPokemons] = useState([]);
 
   useEffect(() => {

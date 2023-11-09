@@ -3,11 +3,11 @@ import "./NavBar.css";
 import { useEffect, useState } from "react";
 import { useMyContext } from "../Context/AppPokemonFetchProvider";
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 
 const NavBar = ({ svgIcon, href }) => {
   const { setPokemonArray, typesPokemons, setTypesPokemons } = useMyContext();
-  const [userInput, setUserInput] = useState();
+  const [userInput, setUserInput] = useState("");
+  const [initialLoad, setInitialLoad] = useState(true);
 
   const url =
     userInput !== ""
@@ -23,18 +23,25 @@ const NavBar = ({ svgIcon, href }) => {
         pokemons = data.results.filter((pokemon) => {
           return pokemon.name.includes(userInput) ? pokemon : null;
         });
-        setPokemonArray(pokemons);
+
+        // !Setzt das ursprüngliche Array nur am Anfang oder wenn der Benutzer die Suche löscht.
+        if (initialLoad || userInput === "") {
+          setPokemonArray(data.results);
+        } else {
+          setTypesPokemons(pokemons);
+        }
+
         console.log(pokemons);
       })
       .catch((err) => console.error("Yan junge....", err));
-  }, [userInput]);
+  }, [userInput, initialLoad, setPokemonArray, setTypesPokemons]);
 
-  // !Neue useEffect-Hook, um typesPokemons zu leeren
   useEffect(() => {
-    if (userInput !== "") {
-      setTypesPokemons([]); // Leere typesPokemons, wenn der Benutzer etwas eingibt
+    // !Nach dem ersten Laden, initialLoad auf false setzen
+    if (initialLoad) {
+      setInitialLoad(false);
     }
-  }, [userInput, setTypesPokemons]);
+  }, [initialLoad]);
 
   return (
     <nav>
@@ -48,7 +55,6 @@ const NavBar = ({ svgIcon, href }) => {
           placeholder="Search Pokemon"
         />
       </form>
-
       <img src={DarkmodeIcon} alt="" className="HeaderIcon" />
     </nav>
   );

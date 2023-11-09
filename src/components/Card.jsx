@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Card = ({ pokemon }) => {
   const [data, setData] = useState();
 
-  // !Der Type Suche gibt andere Type of object, damit es rendern können soll pokemon.pokemon
+  // !Der Type Suche bei Menu gibt andere Type of object, damit es rendern können soll pokemon.pokemon in der fetch, hinzugefügt werden
 
   const pokemonObj = pokemon.pokemon || pokemon;
 
