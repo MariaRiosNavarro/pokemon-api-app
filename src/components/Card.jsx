@@ -25,7 +25,7 @@ const Card = ({ pokemon }) => {
 
         <div className="description">
           <p>{data?.id > 9 ? `#0${data?.id}` : `#00${data?.id}`}</p>
-          <p>{pokemon.name}</p>
+          <p>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
         </div>
       </article>
     </Link>
