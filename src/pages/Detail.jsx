@@ -2,15 +2,14 @@ import { useState, useEffect } from "react";
 import PokeDetail from "../components/PokeDetail";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
+import Header from "../components/Header";
 
 const Detail = () => {
   const [onePokemon, setOnePokemon] = useState("");
 
   const { name } = useParams();
 
-  // let url = `https://pokeapi.co/api/v2/pokemon/${name}`
-
-  let url = `https://pokeapi.co/api/v2/pokemon/pikachu`;
+  let url = `https://pokeapi.co/api/v2/pokemon/${name}`;
 
   useEffect(() => {
     fetch(url)
@@ -29,7 +28,7 @@ const Detail = () => {
 
   return (
     <div>
-      <h2>Detail!!</h2>
+      <Header />
       <PokeDetail pokemonItem={onePokemon} />
     </div>
   );
