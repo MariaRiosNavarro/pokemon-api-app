@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import PokeDetail from "../components/PokeDetail";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
+
 const Detail = () => {
-  const [data, setData] = useState();
+  const [onePokemon, setOnePokemon] = useState("");
 
   const { name } = useParams();
 
@@ -15,21 +16,21 @@ const Detail = () => {
     fetch(url)
       .then((response) => response.json())
       .then((pokemon) => {
-        setData(pokemon);
+        setOnePokemon(pokemon);
       })
       .catch((error) => {
         console.error("Error Message", error);
       });
   }, []);
 
-  if (!data) {
+  if (!onePokemon) {
     return <Loading />;
   }
 
   return (
     <div>
       <h2>Detail!!</h2>
-      <PokeDetail pokemonItem={data} />
+      <PokeDetail pokemonItem={onePokemon} />
     </div>
   );
 };
