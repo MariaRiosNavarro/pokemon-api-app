@@ -5,7 +5,7 @@ import { useMyContext } from "../Context/AppPokemonFetchProvider";
 import { Link } from "react-router-dom";
 
 const NavBar = ({ svgIcon, href }) => {
-  const { setPokemonArray } = useMyContext();
+  const { setPokemonArray, typesPokemons, setTypesPokemons } = useMyContext();
   const [userInput, setUserInput] = useState();
 
   const url =
@@ -27,6 +27,13 @@ const NavBar = ({ svgIcon, href }) => {
       })
       .catch((err) => console.error("Yan junge....", err));
   }, [userInput]);
+
+  // !Neue useEffect-Hook, um typesPokemons zu leeren
+  useEffect(() => {
+    if (userInput !== "") {
+      setTypesPokemons([]); // Leere typesPokemons, wenn der Benutzer etwas eingibt
+    }
+  }, [userInput, setTypesPokemons]);
 
   return (
     <nav>

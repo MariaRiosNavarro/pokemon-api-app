@@ -8,7 +8,7 @@ const Menu = () => {
   const [selectedTypes, setSelectedTypes] = useState([]);
   const { typesPokemons, setTypesPokemons } = useMyContext();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/type/")
