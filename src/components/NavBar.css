@@ -1,0 +1,29 @@
+nav {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1vh 6vw;
+}
+
+.HeaderIcon {
+  width: 7vw;
+  cursor: pointer;
+}
+
+input {
+  width: 63vw;
+  height: 5vh;
+  border: none;
+  border-radius: 30px;
+  padding: 0 5vw;
+  font-size: 30px;
+  color: #909090;
+}
+
+/* Die Textfarbe des Platzhalters ändern */
+input::placeholder {
+  color: #909090;
+  cursor: pointer;
+}
