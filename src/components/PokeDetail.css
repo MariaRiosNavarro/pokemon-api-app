@@ -1,0 +1,15 @@
+.pokeDetail {
+  background-color: #ccdadd;
+}
+
+.image-wrapper {
+  height: 20vh;
+  margin: 10vh 6vw 5vh 6vw;
+  background: linear-gradient(45deg, #ffe1c6, #ffcb05);
+  border-radius: 20px;
+}
+
+.pokeImage {
+  height: 70vh;
+  margin-top: -30vh;
+}

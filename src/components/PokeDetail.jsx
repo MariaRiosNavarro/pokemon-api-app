@@ -1,8 +1,11 @@
+import "./PokeDetail.css";
+
 const PokeDetail = ({ pokemonItem }) => {
   return (
-    <div>
+    <div className="pokeDetail">
       <div className="image-wrapper">
         <img
+          className="pokeImage"
           src={pokemonItem.sprites.front_default}
           alt={`${pokemonItem.name} front`}
         />
