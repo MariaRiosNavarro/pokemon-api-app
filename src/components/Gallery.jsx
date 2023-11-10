@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import { useMyContext } from "../Context/AppPokemonFetchProvider";
+import "./Gallery.css";
 // !problement der index wegen dynamisches render mit die bibliotek uuid (npm install uuid)
 import { v4 as uuidv4 } from "uuid";
+
 
 const Gallery = () => {
   const { pokemonArray, typesPokemons } = useMyContext();
@@ -19,10 +21,12 @@ const Gallery = () => {
   // console.log("Render in Gallery: displayArray", displayArray);
 
   return (
-    <section style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+
+    <section className="pokeGrid">
       {displayArray.map((item) => {
         const uniqueKey = uuidv4();
         return <Card pokemon={item} key={uniqueKey} />;
+
       })}
     </section>
   );

@@ -28,8 +28,9 @@ const Detail = () => {
       });
   }, []);
 
+
   return loading ? (
-    <div>
+    <div className="blueBG">
       <Header />
       <Loading />
     </div>

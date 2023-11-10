@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./Card.css";
 
 const Card = ({ pokemon }) => {
   const [data, setData] = useState();
@@ -16,18 +17,19 @@ const Card = ({ pokemon }) => {
   }, [pokemonObj]);
 
   return (
-    <Link style={{ textDecoration: "none" }} to={`/detail/${pokemonObj.name}`}>
-      <article style={{ border: "2px solid black" }}>
+    <Link className="pokeLink" to={`/detail/${pokemon.name}`}>
+      <article className="cardBG">
         <div className="imageWrapper">
-          <img src={data?.sprites.front_default} alt="" />
+          <img
+            src={data?.sprites.other.dream_world.front_default}
+            alt=""
+            className="pokeCard"
+          />
         </div>
 
-        <div
-          style={{ display: "flex", justifyContent: "space-between" }}
-          className="description"
-        >
+        <div className="description">
           <p>{data?.id > 9 ? `#0${data?.id}` : `#00${data?.id}`}</p>
-          <p>{pokemonObj.name}</p>
+          <p>{pokemonObj.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
         </div>
       </article>
     </Link>

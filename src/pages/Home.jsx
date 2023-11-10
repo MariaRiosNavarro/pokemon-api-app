@@ -7,7 +7,8 @@ const Home = () => {
   // !Der App Provider hier habe ich entfernt, da Problemen für den typesFetch gemacht hat. Jetzt ist nur bei der App
   //! Evt. kann man ein Loading auch in der Gallery hinzufügen Page
   return (
-    <div>
+
+    <div className="blueBG">
       <Header svgIcon={MenuIcon} href="/menu" />
       <Gallery />
     </div>

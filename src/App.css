@@ -1,7 +1,38 @@
+@font-face {
+  font-family: roboto;
+  src: url("./assets/font/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: roboBold;
+  src: url("./assets/font/Roboto-Bold.ttf");
+}
+
+@font-face {
+  font-family: roboMedi;
+  src: url("./assets/font/Roboto-Medium.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: roboto;
+}
+
+.blueBG {
+  background-color: #ccdadd;
+}
+
+span {
+  font-family: roboBold;
+}
+
+.pokeType {
+  margin: 1rem;
+  border: 1px solid black;
+  padding: 0.3rem 2rem;
+  border-radius: 8px;
 }
 
 .dark {
