@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useMyContext } from "../Context/AppPokemonFetchProvider";
-import Gallery from "../components/Gallery";
 
 const Menu = () => {
   const [pokemonData, setPokemonData] = useState();
@@ -64,6 +63,7 @@ const Menu = () => {
         const flattenedResults = results.flatMap((result) => result);
         // Das flache Array wird im State (searchResults) gesetzt, um die gefundenen Pokemon zu speichern.
         //!hier geben die daten weiter an der typesPokemons
+
         setTypesPokemons(flattenedResults);
         console.log("1", flattenedResults);
         // ! hier gehen wir zu home
@@ -117,7 +117,6 @@ const Menu = () => {
       <div>
         <button onClick={handleSearch}>Search</button>
       </div>
-      <Gallery />
     </main>
   );
 };

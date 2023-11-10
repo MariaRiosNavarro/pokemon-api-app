@@ -1,19 +1,18 @@
 import "./PokeDetail.css";
 
+// const dynamicalSrc =
+//   pokemonItem.sprites.other.dream_world.front_default === null
+//     ? pokemonItem.sprites.front_default
+//     : "";
+
 const PokeDetail = ({ pokemonItem }) => {
   return (
     <div className="pokeDetail">
       <div className="image-wrapper">
         <img
-          className="pokeImage"
-          src={pokemonItem.sprites.other.dream_world.front_default}
+          src={pokemonItem.sprites.front_default}
           alt={`${pokemonItem.name} front`}
         />
-        {/* <img
-          src={pokemonItem.sprites.back_default}
-          alt={`${pokemonItem.name} back`}
-          className="pokeImageBack"
-        /> */}
       </div>
       <div>
         <div className="description-header">
