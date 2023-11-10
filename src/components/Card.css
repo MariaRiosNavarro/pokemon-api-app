@@ -16,6 +16,15 @@
   border-radius: 20px;
 }
 
+/* !!! */
+
+.dark .cardBG {
+  background: none;
+  background: linear-gradient(45deg, #909091, #32353a);
+}
+
+/* !!! */
+
 .imageWrapper {
   display: flex;
   justify-content: center;
@@ -29,4 +38,9 @@
   background-color: #ffffff;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.pikachu-gif {
+  position: relative;
+  top: 3rem;
 }

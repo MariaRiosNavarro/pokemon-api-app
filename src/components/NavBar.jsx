@@ -53,7 +53,7 @@ const NavBar = ({ svgIcon, href }) => {
       </Link>
       <form action="#">
         <input
-          onChange={(e) => setUserInput(e.target.value)}
+          onChange={(e) => setUserInput(e.target.value.toLowerCase())}
           type="text"
           placeholder="Search Pokemon"
         />

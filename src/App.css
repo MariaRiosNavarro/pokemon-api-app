@@ -35,8 +35,28 @@ span {
   border-radius: 8px;
 }
 
+/* -- dark mode */
+
 .dark {
   background-color: darkgray;
+}
+
+.dark .blueBG {
+  background-color: rgb(18, 17, 17);
+}
+
+.dark .closeButton {
+  background-color: rgb(18, 17, 17);
+}
+
+.dark .animation-wrapper {
+  background-color: rgb(18, 17, 17);
+}
+
+.dark .animation-wrapper .loader svg {
+  fill: #fdcb07;
+  stroke: #385faa;
+  stroke-width: 4px;
 }
 
 /* ---  Menu CSS ---- */
@@ -73,9 +93,9 @@ span {
   justify-content: center;
   align-items: center;
   margin: 10px auto 10px auto;
-  background-color: #3498db;
   width: 120px;
   border-radius: 5px;
+  border: 1.5px solid black;
 }
 
 .imputTypes {
@@ -129,7 +149,7 @@ span {
   color: #ffcb05;
 }
 
-/* ---------------------- */
+/* -------------Loading Animation--------- */
 
 .animation-wrapper {
   position: relative;

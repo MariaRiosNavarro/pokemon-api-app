@@ -10,3 +10,7 @@ header {
   margin: 3vh 20vw;
   width: 60vw;
 }
+
+.dark header {
+  background-color: rgb(18, 17, 17);
+}

@@ -32,7 +32,9 @@ const Detail = () => {
   return loading ? (
     <div className="blueBG">
       <Header />
-      <Loading />
+      <div className="animation-wrapper">
+        <Loading />
+      </div>
     </div>
   ) : (
     <div className="blueBG">
