@@ -13,6 +13,8 @@ export const AppPokemonFetchProvider = ({ children }) => {
 
   // !neues kontext für die Types damit wir die weiter an den Home geben können
   const [typesPokemons, setTypesPokemons] = useState([]);
+  // !neues theme kontext für darkmode
+  const [theme, setTheme] = useState(false);
 
   useEffect(() => {
     fetch(url)
@@ -26,7 +28,14 @@ export const AppPokemonFetchProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ pokemonArray, setPokemonArray, typesPokemons, setTypesPokemons }}
+      value={{
+        pokemonArray,
+        setPokemonArray,
+        typesPokemons,
+        setTypesPokemons,
+        theme,
+        setTheme,
+      }}
     >
       {children}
     </AppContext.Provider>

@@ -9,6 +9,11 @@ const NavBar = ({ svgIcon, href }) => {
   const { setPokemonArray, typesPokemons, setTypesPokemons } = useMyContext();
   const [userInput, setUserInput] = useState("");
   const [initialLoad, setInitialLoad] = useState(true);
+  const { setTheme } = useMyContext();
+
+  const handleToggleDark = () => {
+    setTheme((value) => !value);
+  };
 
   const url =
     userInput !== ""
@@ -53,7 +58,12 @@ const NavBar = ({ svgIcon, href }) => {
           placeholder="Search Pokemon"
         />
       </form>
-      <img src={DarkmodeIcon} alt="" className="HeaderIcon" />
+      <img
+        onClick={handleToggleDark}
+        src={DarkmodeIcon}
+        alt=""
+        className="HeaderIcon"
+      />
     </nav>
   );
 };
