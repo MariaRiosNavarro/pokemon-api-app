@@ -25,6 +25,30 @@ const Card = ({ pokemon }) => {
       .catch((err) => console.error("Error fetching data:", err));
   }, [pokemonObj]);
 
+  const dynamicID = () => {
+    let id;
+
+    switch (true) {
+      case String(data?.id).length === 3:
+        id = `#${data?.id}`;
+        break;
+
+      case String(data?.id).length === 2:
+        id = `#0${data?.id}`;
+        break;
+
+      case String(data?.id).length === 1:
+        id = `#00${data?.id}`;
+        break;
+
+      default:
+        id = `#${data?.id}`;
+        break;
+    }
+
+    return id;
+  };
+
   return (
     <Link className="pokeLink" to={`/detail/${pokemon.name}`}>
       <article className="cardBG">
@@ -33,7 +57,11 @@ const Card = ({ pokemon }) => {
             <img className="pikachu-gif" src={Pikachu} alt="" />
           ) : (
             <img
-              src={data?.sprites.other.dream_world.front_default}
+              src={
+                data?.sprites.other.dream_world.front_default == null
+                  ? data?.sprites.front_default
+                  : data?.sprites.other.dream_world.front_default
+              }
               alt=""
               className="pokeCard"
             />
@@ -41,7 +69,7 @@ const Card = ({ pokemon }) => {
         </div>
 
         <div className="description">
-          <p>{data?.id > 9 ? `#0${data?.id}` : `#00${data?.id}`}</p>
+          <p>{dynamicID()}</p>
           <p>
             {pokemonObj.name.charAt(0).toUpperCase() + pokemon.name?.slice(1)}
           </p>
