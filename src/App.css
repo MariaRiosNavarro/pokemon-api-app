@@ -34,3 +34,7 @@ span {
   padding: 0.3rem 2rem;
   border-radius: 8px;
 }
+
+.dark {
+  background-color: darkgray;
+}

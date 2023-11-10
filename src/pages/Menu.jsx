@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useMyContext } from "../Context/AppPokemonFetchProvider";
+import Gallery from "../components/Gallery";
 
 const Menu = () => {
   const [pokemonData, setPokemonData] = useState();
   const [selectedTypes, setSelectedTypes] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
+  const { typesPokemons, setTypesPokemons } = useMyContext();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/type/")
@@ -59,8 +63,11 @@ const Menu = () => {
         // 'results' enthält die Daten der Promises.
         const flattenedResults = results.flatMap((result) => result);
         // Das flache Array wird im State (searchResults) gesetzt, um die gefundenen Pokemon zu speichern.
-        setSearchResults(flattenedResults);
-        console.log("Search Results: flaches Array", searchResults);
+        //!hier geben die daten weiter an der typesPokemons
+        setTypesPokemons(flattenedResults);
+        console.log("1", flattenedResults);
+        // ! hier gehen wir zu home
+        navigate("/");
       })
       .catch((error) => {
         console.error(
@@ -69,6 +76,10 @@ const Menu = () => {
         );
       });
   };
+
+  // useEffect(() => {
+  //   console.log("2", typesPokemons);
+  // }, [typesPokemons]);
 
   return (
     <main>
@@ -106,6 +117,7 @@ const Menu = () => {
       <div>
         <button onClick={handleSearch}>Search</button>
       </div>
+      <Gallery />
     </main>
   );
 };
