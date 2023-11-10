@@ -64,8 +64,11 @@ const Menu = () => {
         // Das flache Array wird im State (searchResults) gesetzt, um die gefundenen Pokemon zu speichern.
         //!hier geben die daten weiter an der typesPokemons
 
-        setTypesPokemons(flattenedResults);
-        console.log("1", flattenedResults);
+        // setTypesPokemons(flattenedResults);
+        let pokemons = [];
+        flattenedResults.forEach((elt) => pokemons.push(elt.pokemon));
+        setTypesPokemons(pokemons);
+
         // ! hier gehen wir zu home
         navigate("/");
       })
