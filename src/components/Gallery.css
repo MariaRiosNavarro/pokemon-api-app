@@ -3,5 +3,9 @@
   margin: 0 6vw;
   display: flex;
   flex-wrap: wrap;
-  gap: 7vh 7vw;
+  gap: 8vh 7vw;
+}
+
+.bg {
+  height: 100vh;
 }
