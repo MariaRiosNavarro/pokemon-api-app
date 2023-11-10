@@ -9,7 +9,7 @@ const Card = ({ pokemon }) => {
 
   setTimeout(() => {
     setLoading(false);
-  }, 10000);
+  }, 2000);
 
   // !Der Type Suche bei Menu gibt andere Type of object, damit es rendern können soll pokemon.pokemon in der fetch, hinzugefügt werden
 
