@@ -35,12 +35,28 @@ span {
   border-radius: 8px;
 }
 
+/* -- dark mode */
+
 .dark {
   background-color: darkgray;
 }
 
 .dark .blueBG {
   background-color: rgb(18, 17, 17);
+}
+
+.dark .closeButton {
+  background-color: rgb(18, 17, 17);
+}
+
+.dark .animation-wrapper {
+  background-color: rgb(18, 17, 17);
+}
+
+.dark .animation-wrapper .loader svg {
+  fill: #fdcb07;
+  stroke: #385faa;
+  stroke-width: 4px;
 }
 
 /* ---  Menu CSS ---- */
@@ -133,7 +149,7 @@ span {
   color: #ffcb05;
 }
 
-/* ---------------------- */
+/* -------------Loading Animation--------- */
 
 .animation-wrapper {
   position: relative;
