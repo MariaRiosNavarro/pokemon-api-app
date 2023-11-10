@@ -5,6 +5,7 @@ nav {
   align-items: center;
 
   padding: 1vh 6vw;
+  margin-bottom: 5vh;
 }
 
 .HeaderIcon {
@@ -18,7 +19,8 @@ input {
   border: none;
   border-radius: 30px;
   padding: 0 5vw;
-  font-size: 30px;
+
+  font-size: 20px;
   color: #909090;
 }
 
@@ -26,4 +28,5 @@ input {
 input::placeholder {
   color: #909090;
   cursor: pointer;
+  font-size: 20px;
 }

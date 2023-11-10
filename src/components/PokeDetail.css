@@ -1,0 +1,64 @@
+.pokeDetail {
+  background-color: #ccdadd;
+  height: 100vh;
+}
+
+.image-wrapper {
+  height: 20vh;
+  margin: 10vh 6vw 5vh 6vw;
+  background: linear-gradient(45deg, #ffe1c6, #ffcb05);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokeImage {
+  height: 250px;
+  margin-top: -12vh;
+}
+
+.description-header {
+  display: flex;
+  justify-content: center;
+  font-size: 45px;
+}
+
+.description-header .textBG {
+  position: absolute;
+  -webkit-text-stroke: 13px #2c72b8;
+}
+
+.textBG span {
+  padding: 1vw;
+}
+.orangeText span {
+  z-index: 2;
+  position: relative;
+  color: #ffcb05;
+  padding: 0 1vw;
+}
+
+.description-types {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+details {
+  margin: 3vh 25vw;
+}
+summary {
+  color: #ffcb05;
+  font-family: roboBold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.pokeSummery {
+  margin-top: 2vh;
+  text-align: center;
+  line-height: 3vh;
+  color: #2c72b8;
+}

@@ -1,0 +1,32 @@
+.pokeLink {
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+}
+.pokeCard {
+  max-height: 15vh;
+  margin-top: -5vh;
+  margin-bottom: 2vh;
+  position: absolute;
+}
+
+.cardBG {
+  width: 40vw;
+  background: linear-gradient(45deg, #ffe1c6, #ffcb05);
+  border-radius: 20px;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw;
+  margin-top: 12vh;
+  background-color: #ffffff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}

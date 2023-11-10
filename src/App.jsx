@@ -3,10 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import Menu from "./pages/Menu";
+import { useMyContext } from "./Context/AppPokemonFetchProvider";
 
 function App() {
+  const { theme } = useMyContext();
+
   return (
-    <div>
+    <div className={theme ? "dark" : null}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

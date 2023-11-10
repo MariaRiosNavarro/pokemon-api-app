@@ -1,22 +1,32 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import { useMyContext } from "../Context/AppPokemonFetchProvider";
+import "./Gallery.css";
+// !problement der index wegen dynamisches render mit die bibliotek uuid (npm install uuid)
+import { v4 as uuidv4 } from "uuid";
+
 
 const Gallery = () => {
-  const url = "https://pokeapi.co/api/v2/pokemon/";
+  const { pokemonArray, typesPokemons } = useMyContext();
 
-  const [data, setData] = useState([]);
+  // !wenn der typesArray ist leer, wird den initialArray(pokemonArray) angezeigt
 
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setData(data.results))
-      .catch((err) => console.error("Yan, was hast du nur getan....", err));
-  }, []);
+  const displayArray =
+    typesPokemons.length === 0 ? pokemonArray : typesPokemons;
+
+  // useEffect(() => {
+  //   console.log("Effect in Gallery: displayArray", displayArray);
+  // }, [displayArray]);
+
+  // console.log("Render in Gallery: displayArray", displayArray);
 
   return (
-    <section style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-      {data.map((item, index) => {
-        return <Card pokemon={item} key={index} />;
+
+    <section className="pokeGrid">
+      {displayArray.map((item) => {
+        const uniqueKey = uuidv4();
+        return <Card pokemon={item} key={uniqueKey} />;
+
       })}
     </section>
   );

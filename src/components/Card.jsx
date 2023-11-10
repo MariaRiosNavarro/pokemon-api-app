@@ -1,29 +1,40 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./Card.css";
 
 const Card = ({ pokemon }) => {
   const [data, setData] = useState();
 
+  // !Der Type Suche bei Menu gibt andere Type of object, damit es rendern können soll pokemon.pokemon in der fetch, hinzugefügt werden
+
+  // const aufgeloestesPokemon = pokemon.pokemon.flatMap((p) => p);
+  // console.log(aufgeloestesPokemon);
+
+  const pokemonObj = pokemon.pokemon || pokemon;
+
   useEffect(() => {
-    fetch(pokemon.url)
+    fetch(pokemonObj.url)
       .then((res) => res.json())
       .then((data) => setData(data))
-      .catch((err) => console.error("Yan langsam reichts aber auch...", err));
-  }, []);
+      .catch((err) => console.error("Error fetching data:", err));
+  }, [pokemonObj]);
 
   return (
-    <Link style={{ textDecoration: "none" }} to={`/detail/${pokemon.name}`}>
-      <article style={{ border: "2px solid black" }}>
+    <Link className="pokeLink" to={`/detail/${pokemon.name}`}>
+      <article className="cardBG">
         <div className="imageWrapper">
-          <img src={data?.sprites.front_default} alt="" />
+          <img
+            src={data?.sprites.other.dream_world.front_default}
+            alt=""
+            className="pokeCard"
+          />
         </div>
 
-        <div
-          style={{ display: "flex", justifyContent: "space-between" }}
-          className="description"
-        >
+        <div className="description">
           <p>{data?.id > 9 ? `#0${data?.id}` : `#00${data?.id}`}</p>
-          <p>{pokemon.name}</p>
+          <p>
+            {pokemonObj.name.charAt(0).toUpperCase() + pokemon.name?.slice(1)}
+          </p>
         </div>
       </article>
     </Link>

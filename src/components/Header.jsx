@@ -3,11 +3,11 @@ import NavBar from "./NavBar";
 
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ svgIcon, href }) => {
   return (
     <header>
       <img src={PokeLogo} alt="Pokemon-Logo" className="PokeLogo" />
-      <NavBar />
+      <NavBar svgIcon={svgIcon} href={href} />
     </header>
   );
 };
