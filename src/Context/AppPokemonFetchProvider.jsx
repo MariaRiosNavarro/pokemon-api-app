@@ -4,6 +4,8 @@ const AppContext = createContext();
 
 export const useMyContext = () => useContext(AppContext);
 
+export let initialCopyOfPokemons = [];
+
 export const AppPokemonFetchProvider = ({ children }) => {
   const url = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 
@@ -17,6 +19,7 @@ export const AppPokemonFetchProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => {
         setPokemonArray(data.results);
+        return (initialCopyOfPokemons = [...pokemonArray]);
       })
       .catch((err) => console.error("OH NO,💣 was hast du nur getan❌", err));
   }, []);

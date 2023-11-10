@@ -3,6 +3,7 @@ import "./NavBar.css";
 import { useEffect, useState } from "react";
 import { useMyContext } from "../Context/AppPokemonFetchProvider";
 import { Link } from "react-router-dom";
+import { initialCopyOfPokemons } from "../Context/AppPokemonFetchProvider";
 
 const NavBar = ({ svgIcon, href }) => {
   const { setPokemonArray, typesPokemons, setTypesPokemons } = useMyContext();
@@ -24,14 +25,11 @@ const NavBar = ({ svgIcon, href }) => {
           return pokemon.name.includes(userInput) ? pokemon : null;
         });
 
-        // !Setzt das ursprüngliche Array nur am Anfang oder wenn der Benutzer die Suche löscht.
-        if (initialLoad || userInput === "") {
-          setPokemonArray(data.results);
-        } else {
-          setTypesPokemons(pokemons);
-        }
+        setPokemonArray(pokemons);
 
-        console.log(pokemons);
+        // !Setzt auf Types eine kopie des initial Array wenn der user sucht (und die gesuchte Types werden geloscht),
+
+        userInput !== "" ? setTypesPokemons(initialCopyOfPokemons) : null;
       })
       .catch((err) => console.error("Yan junge....", err));
   }, [userInput, initialLoad, setPokemonArray, setTypesPokemons]);
