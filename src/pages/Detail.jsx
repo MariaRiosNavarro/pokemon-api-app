@@ -35,7 +35,7 @@ const Detail = () => {
       <Loading />
     </div>
   ) : (
-    <div>
+    <div className="blueBG">
       <Header svgIcon={BackIcon} href="/" />
       <PokeDetail pokemonItem={onePokemon} />
     </div>

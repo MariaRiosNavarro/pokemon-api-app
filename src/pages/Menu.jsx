@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useMyContext } from "../Context/AppPokemonFetchProvider";
+import PokeLogo from "../assets/img/PokeLogo.svg";
+import CloseIcon from "../assets/img/close.svg";
 
 const Menu = () => {
   const [pokemonData, setPokemonData] = useState();
@@ -85,30 +87,40 @@ const Menu = () => {
   // }, [typesPokemons]);
 
   return (
-    <main>
-      <section>
+    <main className="blueBG">
+      <section className="typeHeader">
         <img
-          src="./public/img/LogoTypePage.png"
+          src={PokeLogo}
           alt="Pokemon Logo auf der Type Page"
+          className="pokemonlogo"
         />
         <Link to="/">
-          <button>
-            <img src="./public/img/close.svg" alt="X for close the Menu" />
+          <button className="closeButton">
+            <img
+              src={CloseIcon}
+              alt="X for close the Menu"
+              className="zurückImage"
+            />
           </button>
         </Link>
       </section>
-      <h2>TYPE</h2>
+      <div className="description-header">
+        <h2 className="textBG">TYPE</h2>
+        <h2 className="orangeText2">TYPE</h2>
+      </div>
+
       <section className="allTypeContainer">
         {pokemonData && pokemonData.results && (
-          <article>
+          <article className="typeGrid">
             {pokemonData.results.map((type, index) => (
-              <div key={index}>
-                <label>
+              <div className="typeWrapper {color-${type.name}}" key={index}>
+                <label className="typeLable" data-type-name={type.name}>
                   <input
                     name="typeInput"
                     type="checkbox"
                     value={type.name}
                     onChange={handleTypeChange}
+                    className="imputTypes"
                   />
                   {type.name}
                 </label>
@@ -117,8 +129,10 @@ const Menu = () => {
           </article>
         )}
       </section>
-      <div>
-        <button onClick={handleSearch}>Search</button>
+      <div className="searchWrapper">
+        <button className="pokeSearch" onClick={handleSearch}>
+          Search
+        </button>
       </div>
     </main>
   );

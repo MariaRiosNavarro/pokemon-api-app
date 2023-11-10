@@ -1,11 +1,10 @@
 .pokeDetail {
-  background-color: #ccdadd;
   height: 100vh;
 }
 
 .image-wrapper {
   height: 20vh;
-  margin: 10vh 6vw 5vh 6vw;
+  margin: 5vh 6vw 5vh 6vw;
   background: linear-gradient(45deg, #ffe1c6, #ffcb05);
   border-radius: 20px;
   display: flex;
@@ -14,7 +13,7 @@
 }
 
 .pokeImage {
-  height: 250px;
+  height: 220px;
   margin-top: -12vh;
 }
 
@@ -47,12 +46,18 @@
 }
 
 details {
-  margin: 3vh 25vw;
+  margin: 3vh auto;
+}
+
+.detailsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 summary {
   color: #ffcb05;
   font-family: roboBold;
-  font-size: 20px;
+  font-size: 17px;
   cursor: pointer;
 }
 
