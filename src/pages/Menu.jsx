@@ -4,6 +4,56 @@ import { useMyContext } from "../Context/AppPokemonFetchProvider";
 import PokeLogo from "../assets/img/PokeLogo.svg";
 import CloseIcon from "../assets/img/close.svg";
 
+const getColorForType = (typeName) => {
+  switch (typeName) {
+    case "bug":
+      return "#3bb900";
+    case "dark":
+      return "#1c1c1c";
+    case "dragon":
+      return "#00458a";
+    case "fairy":
+      return "#ffc2f9";
+    case "electric":
+      return "#ffe600";
+    case "shadow":
+      return "#668b8b";
+    case "fighting":
+      return "#e40000";
+    case "fire":
+      return "#ff9900";
+    case "flying":
+      return "#ccdadd";
+    case "ghost":
+      return "#5a1e64";
+    case "grass":
+      return "#57921c";
+    case "ground":
+      return "#965a00";
+    case "ice":
+      return "#6ad2ff";
+    case "normal":
+      return "#b3b3b3";
+    case "plant":
+      return "#70df00";
+    case "poison":
+      return "#ab00ae";
+    case "psychic":
+      return "#ff81f2";
+    case "rock":
+      return "#e1b237";
+    case "steel":
+      return "#2a4950";
+    case "water":
+      return "#00a0e4";
+    case "unknown":
+      return "#fa8072";
+    // Füge hier weitere Fälle für die verschiedenen Pokémon-Typen hinzu
+    default:
+      return "#FFFFFF"; // Standardfarbe, falls der Typ nicht übereinstimmt
+  }
+};
+
 const Menu = () => {
   const [pokemonData, setPokemonData] = useState();
   const [selectedTypes, setSelectedTypes] = useState([]);
@@ -113,7 +163,11 @@ const Menu = () => {
         {pokemonData && pokemonData.results && (
           <article className="typeGrid">
             {pokemonData.results.map((type, index) => (
-              <div className="typeWrapper {color-${type.name}}" key={index}>
+              <div
+                key={index}
+                className="typeWrapper"
+                style={{ backgroundColor: getColorForType(type.name) }}
+              >
                 <label className="typeLable" data-type-name={type.name}>
                   <input
                     name="typeInput"

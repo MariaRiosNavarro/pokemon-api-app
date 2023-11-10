@@ -73,9 +73,9 @@ span {
   justify-content: center;
   align-items: center;
   margin: 10px auto 10px auto;
-  background-color: #3498db;
   width: 120px;
   border-radius: 5px;
+  border: 1.5px solid black;
 }
 
 .imputTypes {
