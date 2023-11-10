@@ -7,11 +7,7 @@ const Card = ({ pokemon }) => {
 
   // !Der Type Suche bei Menu gibt andere Type of object, damit es rendern können soll pokemon.pokemon in der fetch, hinzugefügt werden
 
-  // const aufgeloestesPokemon = pokemon.pokemon.flatMap((p) => p);
-  // console.log(aufgeloestesPokemon);
-
   const pokemonObj = pokemon.pokemon || pokemon;
-
   useEffect(() => {
     fetch(pokemonObj.url)
       .then((res) => res.json())
