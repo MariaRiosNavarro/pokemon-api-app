@@ -47,25 +47,34 @@ const Menu = () => {
     }
   };
 
-  // !Ich musste die funktion ändern weil ich nicht ganz verfolgt habe was passiert
+  const handleSearch = () => {
+    // Für jeden ausgewählten Typ werden Promise-Objekte erstellt.
+    const promises = selectedTypes.map((type) =>
+      // Jedes Promise-Objekt ist eine Anfrage an die Pokemon API für einen bestimmten Type.
+      fetch(`https://pokeapi.co/api/v2/type/${type}`)
+        .then((res) => res.json())
+        .then((data) => data.pokemon)
+    );
 
-  const handleSearch = async () => {
-    try {
-      const promises = selectedTypes.map(async (type) => {
-        const response = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
-        const data = await response.json();
-        return data.pokemon;
+    // Promise.all nimmt ein Array von Promise-Objekten entgegen und gibt ein neues Promise zurück.
+    Promise.all(promises)
+      .then((results) => {
+        // Der Code wird ausgeführt, wenn alle Promises erfolgreich wurden.
+        // 'results' enthält die Daten der Promises.
+        const flattenedResults = results.flatMap((result) => result);
+        // Das flache Array wird im State (searchResults) gesetzt, um die gefundenen Pokemon zu speichern.
+        //!hier geben die daten weiter an der typesPokemons
+        setTypesPokemons(flattenedResults);
+        console.log("1", flattenedResults);
+        // ! hier gehen wir zu home
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(
+          "Error fetching Pokemon data, psst they hiding in the deep grass",
+          error
+        );
       });
-
-      const results = await Promise.all(promises);
-      const combinedResults = results.flat(); //
-      //!hier geben die daten weiter an der typesPokemons
-      setTypesPokemons(combinedResults);
-      // console.log("1", combinedResults);
-      navigate("/");
-    } catch (error) {
-      console.error("Error during type fetch", error);
-    }
   };
 
   // useEffect(() => {
