@@ -3,10 +3,17 @@ import "./NavBar.css";
 import { useEffect, useState } from "react";
 import { useMyContext } from "../Context/AppPokemonFetchProvider";
 import { Link } from "react-router-dom";
+import { initialCopyOfPokemons } from "../Context/AppPokemonFetchProvider";
 
 const NavBar = ({ svgIcon, href }) => {
-  const { setPokemonArray } = useMyContext();
-  const [userInput, setUserInput] = useState();
+  const { setPokemonArray, typesPokemons, setTypesPokemons } = useMyContext();
+  const [userInput, setUserInput] = useState("");
+  const [initialLoad, setInitialLoad] = useState(true);
+  const { setTheme } = useMyContext();
+
+  const handleToggleDark = () => {
+    setTheme((value) => !value);
+  };
 
   const url =
     userInput !== ""
@@ -22,11 +29,22 @@ const NavBar = ({ svgIcon, href }) => {
         pokemons = data.results.filter((pokemon) => {
           return pokemon.name.includes(userInput) ? pokemon : null;
         });
+
         setPokemonArray(pokemons);
-        console.log(pokemons);
+
+        // !Setzt auf Types eine kopie des initial Array wenn der user sucht (und die gesuchte Types werden geloscht),
+
+        userInput !== "" ? setTypesPokemons(initialCopyOfPokemons) : null;
       })
       .catch((err) => console.error("Yan junge....", err));
-  }, [userInput]);
+  }, [userInput, initialLoad, setPokemonArray, setTypesPokemons]);
+
+  useEffect(() => {
+    // !Nach dem ersten Laden, initialLoad auf false setzen
+    if (initialLoad) {
+      setInitialLoad(false);
+    }
+  }, [initialLoad]);
 
   return (
     <nav>
@@ -40,8 +58,12 @@ const NavBar = ({ svgIcon, href }) => {
           placeholder="Search Pokemon"
         />
       </form>
-
-      <img src={DarkmodeIcon} alt="" className="HeaderIcon" />
+      <img
+        onClick={handleToggleDark}
+        src={DarkmodeIcon}
+        alt=""
+        className="HeaderIcon"
+      />
     </nav>
   );
 };

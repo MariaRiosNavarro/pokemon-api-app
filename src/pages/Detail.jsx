@@ -22,6 +22,7 @@ const Detail = () => {
       .then((response) => response.json())
       .then((pokemon) => {
         setOnePokemon(pokemon);
+        console.log(pokemon);
       })
       .catch((error) => {
         console.error("Error Message", error);
@@ -29,7 +30,7 @@ const Detail = () => {
   }, []);
 
   return loading ? (
-    <div>
+    <div className="blueBG">
       <Header />
       <Loading />
     </div>
