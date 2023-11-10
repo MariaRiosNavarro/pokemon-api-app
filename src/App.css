@@ -39,6 +39,10 @@ span {
   background-color: darkgray;
 }
 
+.dark .blueBG {
+  background-color: rgb(18, 17, 17);
+}
+
 /* ---  Menu CSS ---- */
 
 .typeHeader {
